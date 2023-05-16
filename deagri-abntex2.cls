@@ -1,5 +1,5 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Customizações do abnTeX2 para o Departamento de Computação (DCOMP)               %
+%% Customizações do abnTeX2 para o Departamento de Engenharia Agrícola (DEAGRI)     %
 %% da Universidade Federal de Sergipe (UFS)                                         %
 %% This work may be distributed and/or modified under the                           %
 %% conditions of the LaTeX Project Public License, either version 1.3               %
@@ -15,7 +15,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{dcomp-abntex2}[18/06/2019 v1.5 Modelo DCOMP baseado no projeto abnTeX2]
+\ProvidesClass{deagri-abntex2}[16/05/2023 v1.0 Modelo DEAGRI baseado no projeto abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -220,7 +220,7 @@
 		pdfauthor={\imprimirautor},
 		pdfsubject={\imprimircurso},
 		pdfcreator={\imprimirorientador},
-		pdfkeywords={abnTeX2, DCOMP, Universidade Federal de Sergipe},
+		pdfkeywords={abnTeX2, DEAGRI, Universidade Federal de Sergipe},
 	}
 	
 	\makeatother 
