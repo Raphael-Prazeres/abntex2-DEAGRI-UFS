@@ -1,21 +1,19 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Customizações do abnTeX2 para o Departamento de Engenharia Agrícola (DEAGRI)     %
+%% Customizações do abnTeX2 para o Departamento de Engenharia Agrícola (DEAGRI)               
 %% da Universidade Federal de Sergipe (UFS)                                         %
-%% This work may be distributed and/or modified under the                           %
-%% conditions of the LaTeX Project Public License, either version 1.3               %
+%% This work may be distributed and/or modified under the                           
+%% conditions of the LaTeX Project Public License, either version 1.3               
 %% of this license or (at your option) any later version.                           %
-%% The latest version of this license is in                                         %
-%%   http://www.latex-project.org/lppl.txt                                          %
-%% and version 1.3 or later is part of all distributions of LaTeX                   %
+%% The latest version of this license is in                                         
+%%   http://www.latex-project.org/lppl.txt                                          
+%% and version 1.3 or later is part of all distributions of LaTeX                   
 %% version 2005/12/01 or later.                                                     %
 %% This work has the LPPL maintenance status `maintained'.                          %
-%%                                                                                  %  
-%%                                                                                  %
 %% Maiores informações sobre o abntex está disponível em http://www.abntex.net.br/  %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{deagri-abntex2}[16/05/2023 v1.0 Modelo DEAGRI baseado no projeto abnTeX2]
+\ProvidesClass{deagri-abntex2}[24/10/2023 v1.0 Modelo DEAGRI baseado no projeto abnTeX2]
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PARÂMETROS INICIAIS ABNTEX2
@@ -26,7 +24,9 @@
 
 \DeclareOption{msc}{%
   \let\@degreetype=1}
-
+  
+\DeclareOption{est}{%
+  \let\@degreetype=2}
 
 % Repassa todos os parametros a classe abntex2
 \DeclareOption*{%
@@ -36,6 +36,7 @@
 
 \ProcessOptions\relax
 \LoadClass[sumario = tradicional, 12pt, openright, oneside, a4paper]{abntex2}
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% PACOTES
@@ -55,7 +56,14 @@
 \usepackage{microtype} 			  % para melhorias de justificação
 
 \usepackage[brazilian,hyperpageref]{backref}
-\usepackage[alf]{abntex2cite}	  % Citações padrão ABNT
+%\usepackage[alf]{abntex2cite}	  % Citações padrão ABNT
+\usepackage[
+alf, %citação no modelo altor data
+abnt-emphasize=bf, %coloca o título dos textos das referências em negrito. Se não colocar eles ficam em itálico por padrão
+abnt-etal-text=it,  %solução para formatar o "et al" em itálico nas citações e referências
+bibjustif %coloca as referencias justificadas (não obrigatório na norma ABNT)
+]{abntex2cite} %  coloca a bibliografia em ordem alfabética
+
 
 \usepackage{parskip}			  % espaçamento entre os parágrafos
 \usepackage{xcolor}
@@ -69,9 +77,14 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \if \@degreetype0
    \usepackage{Graduacao}
-   \else \if \@degreetype1
-       \usepackage{Mestrado}
-   \fi
+   \else
+        \if \@degreetype1
+            \usepackage{Mestrado}
+       \else
+            \if \@degreetype2
+                \usepackage{Estagio}
+            \fi
+        \fi
 \fi
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -118,20 +131,22 @@
 	    {\ABNTEXchapterfont\Large\imprimirtitulo}
     	\vspace*{1.0cm}
     	
-	    \imprimirtipotrabalho
+	    %\imprimirtipotrabalho
     	\vspace*{\fill}
 
-	    {\Large\imprimirautor}
-    	\vspace*{2.0cm}
+	   % \begin{flushright}	    
+		%    {\Large\imprimirautor}
+	    %\end{flushright}
+    	\vspace*{5.0cm}
 	    \vspace*{\fill}
     
-    	\imprimirlogo
+    	%\imprimirlogo
     
     	{\imprimirlocal}
 	    \par
     	{\imprimirdata}
 
-	    \vspace*{1cm}
+	   % \vspace*{1cm}
   \end{capa}
 }
 
@@ -142,13 +157,13 @@
 \makeatletter
 \renewcommand{\folhaderostocontent}{
 	\begin{center}
-		\imprimirinstituicao
-		\par
-		\vspace*{\fill}
+		%\imprimirinstituicao
+		%\par
+		%\vspace*{\fill}
 
 		{\Large\imprimirautor}
 
-		\vspace*{3.5cm}
+		\vspace*{5.5cm}
 		{\ABNTEXchapterfont\Large\imprimirtitulo}
 		
 		\vspace*{\fill}
@@ -184,7 +199,7 @@
 
 \vspace*{\fill}
 {\imprimirlocal\par}
-{\imprimirdata\vspace*{1cm}}
+{\imprimirdata}%\vspace*{1cm}}
 \end{center}
 }
 \makeatother
@@ -201,10 +216,10 @@
 \hypersetup{
 	unicode=true, 
 	colorlinks=true,       		% false: boxed links; true: colored links
-	linkcolor=blue,          	% color of internal links
-	citecolor=blue,        		% color of links to bibliography
-	filecolor=magenta,      	% color of file links
-	urlcolor=blue,
+	linkcolor=black,          	% color of internal links
+	citecolor=black,        		% color of links to bibliography
+	filecolor=black,      	% color of file links
+	urlcolor=black,
 	bookmarksdepth=4,
 	breaklinks=true             % deve ser usado com o pacote breakurl, sem ele não fuciona
 }
@@ -232,7 +247,7 @@
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 % O tamanho do parágrafo é dado por:
-\setlength{\parindent}{1.3cm}
+\setlength{\parindent}{1.25cm}
 
 % Controle do espaçamento entre um parágrafo e outro:
 \setlength{\parskip}{0.2cm}  % tente também \onelineskip
@@ -342,29 +357,29 @@
 %% FORMATO DOS CAPÍTULOS
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\renewcommand{\chapnumfont}{%
-    \vspace*{1cm}    
-    \usefont{T1}{pnc}{b}{n}%      % choose New Chancery, bold, normal shape
-    \fontsize{100}{100}%          % font size 100pt, baselineskip 100pt
-    \color{gray!75}%                 
-    \selectfont%                  % activate font
-}
+%\def\@chapapp{Chapter}%
+\makechapterstyle{postext}{%%
+    \chapterstyle{default}%
+    \renewcommand*{\chapterheadstart}{}%
+    \renewcommand{\chapterheadstart}{}%
+    \renewcommand*{\printchaptername}{}%
+    \renewcommand*{\chapternamenum}{}%
+    \renewcommand*{\chapnumfont}{\normalfont\scshape\MakeTextLowercase}%
+    \renewcommand*{\printchapternum}{}%
+    \renewcommand*{\afterchapternum}{}%
+    \renewcommand*{\printchapternonum}{}%
+    \renewcommand*{\chaptitlefont}{\normalfont\small\bfseries}%
+    \renewcommand*{\printchaptertitle}[1]{%%
+        \null
+        \vfill
+        \centering %
+        \chaptitlefont{\@chapapp\ \thechapter\ -- ##1}%
+        \vfill
+        \cleardoublepage
+    }%
+    \titleformat{\chapter}[display]
 
-\renewcommand{\chaptitlefont}{\ABNTEXchapterfont\ABNTEXchapterfontsize\color{black}}
-
-\renewcommand\printchaptertitle[1]{%
-    \chaptitlefont%
-    \ifthenelse{\boolean{abntex@innonumchapter}}{%
-    \centering\ABNTEXchapterupperifneeded{#1}}{%
-    \ifthenelse{\boolean{abntex@apendiceousecao}}{%
-        \centering%
-        \settowidth{\chapternamenumlength}{\printchaptername\printchapternum\afterchapternum}%
-        \ABNTEXchapterupperifneeded{#1}%
-      }{%
-        {\printchaptername\afterchapternum}%
-        \parbox[t]{\columnwidth-\chapternamenumlength}{\ABNTEXchapterupperifneeded{#1}}}%
-     }    
-}
+}%
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% COMANDOS PARA MOSTRAR LISTAS E SUMARIO
