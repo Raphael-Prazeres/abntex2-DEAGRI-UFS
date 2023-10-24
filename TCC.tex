@@ -4,16 +4,19 @@
 % as normas da ABNT
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 \documentclass[english, 
-               brazil, 
-               bsc] %Opções bsc (TCC) e msc (Mestrado)
-               {dcomp-abntex2}
+brazil, 
+bsc] %Opções bsc (TCC) e msc (Mestrado)
+{deagri-abntex2}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % Área para adição de pacotes extras
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{multirow}
+\usepackage{verbatim}
+\usepackage{tablefootnote}
+\usepackage{graphicx}
 
 \usepackage{lipsum} %Retirar para a versão final do documento
 
@@ -26,12 +29,12 @@
 \makeindex
 
 \begin{document}
-
-% Seleciona o idioma do documento (conforme pacotes do babel)
-\selectlanguage{brazil}
-
-% Retira espaço extra obsoleto entre as frases.
-\frenchspacing 
+	
+	% Seleciona o idioma do documento (conforme pacotes do babel)
+	\selectlanguage{brazil}
+	
+	% Retira espaço extra obsoleto entre as frases.
+	\frenchspacing
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ELEMENTOS PRÉ-TEXTUAIS
@@ -39,10 +42,10 @@
 
 \pretextual
 
-\titulo{Modelo Canônico de Trabalho Acadêmico com abnTeX2: Customização para o Departamento de Engenharia Agrícola} 
-\autor{Digite seu nome completo}
-\orientador{Digite o nome do seu orientador}
-\coorientador{Digite o nome do seu coorientador}
+\titulo{DIGITE AQUI O TÍTULO DO SEU TRABALHO} 
+\autor{Seu nome}
+\orientador{Nome do Orientador}
+%\coorientador{Nome do Coorientador}
 \curso{Engenharia Agrícola}
 
 \inserirInformacoesPDF
@@ -60,12 +63,12 @@
 \mostrarlistadeILUSTRACOES
 \mostrarlistadeQUADROS
 \mostrarlistadeTABELAS
-\mostrarlistadeCODIGOS
-\mostrarlistadeALGORITMOS
- 
+%\mostrarlistadeCODIGOS
+%\mostrarlistadeALGORITMOS
+
 \include{Pre_Textual/Abreviaturas}
 \include{Pre_Textual/Simbolos}
-    
+
 \mostrarSUMARIO
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -74,11 +77,11 @@
 
 \textual
 \include{Conteudo/01_Introducao}
-\include{Conteudo/02_Comandos}
-\include{Conteudo/03_ConteudoEspecifico}
-\include{Conteudo/04_Outros}
-\include{Conteudo/05_Customizacao}
-\include{Conteudo/06_Conclusao}
+\include{Conteudo/02_Objetivos}
+\include{Conteudo/03_Material_e_Metodos}
+\include{Conteudo/04_Resultados_e_discussao}
+\include{Conteudo/05_Conclusoes}
+
 
 \phantompart
 \bibliography{Bibliografia}
@@ -95,3 +98,7 @@
 \include{Pos_Textual/Anexos}
 
 \end{document}
+
+
+
+
